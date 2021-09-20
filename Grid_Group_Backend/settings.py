@@ -36,7 +36,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-zklq!*6g$i9p(q#o-*ud9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = ['localhost', 'pacific-anchorage-53740.herokuapp.com', ]
+ALLOWED_HOSTS = ['localhost', 'pacific-anchorage-53740.herokuapp.com', '127.0.0.1',]
 
 
 # Application definition
@@ -146,3 +146,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticatedOrReadOnly', ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 6,
+}
