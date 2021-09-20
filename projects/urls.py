@@ -10,4 +10,5 @@ router.register(r'styles', views.StyleViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('email/send/', views.send_mail),
 ]
