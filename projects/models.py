@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 
 class Project(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=250)
     description = models.TextField()
     style_id = models.ForeignKey('Style', on_delete=models.CASCADE, related_name='styles')
@@ -19,7 +19,7 @@ class Project(models.Model):
 
 
 class Style(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=150)
     description = models.TextField()
     preview = CloudinaryField('image')
